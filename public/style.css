@@ -1,0 +1,368 @@
+/* General Styles */
+
+body {
+  position: relative; /* Necessario per posizionare lo sfondo */
+
+  /* Force the body to be at least as tall as the screen */
+  min-height: 100vh; 
+
+  /* Maintains the column layout for your elements */ 
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f4f9; /* Un colore di base nel caso l'immagine non carichi */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+body::before {
+  content: ''; /* For pseudo-elements */
+  position: fixed; /* Cover the entire windeo, no taking care of the scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Background image */
+  background-image: url('/images/background.png');
+  background-size: cover; /* Makes the image cover the entire space without distorting */
+  background-position: center;
+  
+  /* blur effect */
+  filter: blur(25px);
+  
+  /* background behind all */
+  z-index: -1;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffb702;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;  
+}
+
+h1 { 
+  font-family: 'Bangers', cursive; /* Apply the new font */
+  font-size: 3em; /* Increase the size */
+  letter-spacing: 2px; /* Add some space between letters */
+  color: #ce2b37; /* Primary color: Red */
+  margin: 0;
+  display: block; /* Ensures the title is visible */
+  -webkit-text-stroke: 1.5px black; /* Adds a black outline */
+  text-shadow: 3px 3px 0 #000; /* Adds a sharp shadow */
+
+}
+
+h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2em; 
+  letter-spacing: 2px; 
+  color: #f6f6f6; 
+  margin: 0;
+  display: block; 
+  -webkit-text-stroke: 1.8px black; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
+}
+
+h3 { 
+  color: #444; 
+  font-family: 'Bangers'; 
+  font-size: 1.5em;
+  letter-spacing: 2px; 
+  color: #000000; 
+  margin: 0;
+  display: block; 
+}
+
+h4 {
+  font-family: 'Bangers', cursive;
+  font-size: 1.8em; 
+  letter-spacing: 2px; 
+  color: #e83535;  
+  margin: 0;
+  display: block; 
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0); 
+  text-shadow: 5px 5px 10px rgba(255, 255, 255, 0.6); 
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+
+/* Buttons Style */
+button {
+  background-color:  #224908;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2a620a;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button#logout { background-color: #8f0f0f; }
+button#logout:hover { background-color: #e90a0a; }
+
+
+/* Containes and Tables */
+.content-box {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.data-table th, .data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+}
+
+.data-table td:first-child {
+  font-weight: 500;
+  color: #555;
+  text-transform: capitalize;
+}
+
+
+/* Form Styles */
+#order-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#pizza-select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+
+
+
+
+/* --- Notification Styles --- */
+#notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification {
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out forwards;
+  cursor: pointer;
+  transition: opacity 0.4s ease-out; 
+}
+
+/* Styles for different notification types */
+.notification.success {
+  background-color: #28a745; /* Green */
+}
+
+.notification.error {
+  background-color: #dc3545; /* Red */
+}
+
+/* Fade-in and Fade-out animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+/* Notification Styles END */
+
+
+
+/* Image container */
+.hero-image-container {
+  width: 100%;
+  margin-top: 30px; /* Spazio sopra l'immagine */
+  margin-bottom: 30px; /* Spazio sotto l'immagine */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-container img {
+  max-width: 1000px; 
+  width: 100%;
+  height: auto;       
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #1e7a10;
+  border: 3px solid #000000; /* Esempio: bordo nero, solido, di 4px */
+}
+
+/* Logo container */
+.logo-container {
+  /* Questo contenitore ora si adatterà alla dimensione del logo */
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  /* Imposta qui la dimensione desiderata per il logo */
+  height: 200px;  /* Esempio: altezza ridotta */
+  width: 200px;   /* Esempio: larghezza ridotta */
+
+  object-fit: contain; /* Mantiene le proporzioni corrette */
+}
+
+
+
+/* FOR MOBILE VERSION */
+/* ---Media Queries for Responsiveness --- */
+
+@media (max-width: 768px) {
+
+
+/* --- Mobile-Specific Profile Table Styles --- */
+
+    #user-profile-table td {
+    display: block;      /* Makes each cell occupy an entire row */
+    text-align: left;    /* Align text left as required */
+    padding-left: 12px;  /* Restore normal padding */
+    position: static;    /* Reset positioning */
+    width: auto;
+    }
+
+    /* Removes the 'data-label' pseudo-element that is no longer needed here */
+    #user-profile-table td:before {
+    content: none;
+    }
+
+    /* Style for the label (e.g. "Name") */
+    #user-profile-table td:first-child {
+    font-weight: 600;
+    padding-bottom: 2px;
+    border-bottom: none; /* Removes the line between label and value */
+    }
+
+    /* Style for the value (e.g. "t4@pizza42.it") */
+    #user-profile-table td:last-child {
+    padding-top: 0;
+    padding-left: 15px; /* Adds a small indentation for clarity */
+    color: #666;
+    }
+
+  body {
+    padding: 10px;
+  }
+
+
+
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  /* Makes the form more mobile-friendly */
+  #order-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Trasforma le tabelle in un layout a "card" */
+  .data-table {
+    border: none;
+  }
+
+  .data-table thead {
+    display: none; /* Hide table headers */
+  }
+
+  .data-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .data-table td {
+    display: block;
+    text-align: right; /*Align the value to the right */
+    border-bottom: 1px solid #eee;
+    padding-left: 50%; /* Leave room for the label */
+    position: relative;
+  }
+
+  .data-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Adds the label before each data item, using the data-label attribute */
+  .data-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    width: calc(50% - 24px);
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    text-transform: capitalize;
+  }
+}
+
+

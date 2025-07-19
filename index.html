@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza 42</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div id="notification-container"></div>
+
+  <header>
+
+
+    <h1>🍕 Pizza 42</h1>
+    <div class="auth-buttons">
+      <button id="login">Log In</button>
+      <button id="logout">Log Out</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="app">
+        <div class="welcome-message">
+            <h2>Hey there, Pizza lover!</h2>
+            <h2>Log in to dive into your personalized pizza menu.</h2>
+            <h2>Deliciousness awaits!</h2>
+            <br/>
+            <h4>No account yet? No worries! Just click 'Log In' to create one.</h4>
+        </div>
+
+
+
+        <div class="hero-image-container">
+            <img src="images/peopleEatingPizza.png" alt="Tasty pizza">
+        </div>
+
+        <div id="user-content" class="hidden">
+        <div class="content-box">
+            <h3>Your Profile</h3>
+            <table class="data-table" id="user-profile-table">
+            <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Place your Order</h3>
+            <form id="order-form">
+            <select name="pizza" id="pizza-select">
+                <option value="Margherita">Margherita</option>
+                <option value="Bufala">Bufala</option>
+                <option value="Diavola">Diavola</option>
+                <option value="Capricciosa">Capricciosa</option>
+                <option value="4Formaggi">4 Formaggi</option>
+                <option value="Vegetariana">Vegetariana</option>
+                <option value="4Stagioni">4 Stagioni</option>
+                <option value="Napoli">Napoli</option>
+            </select>
+            <button type="submit">Order Now!</button>
+            </form>
+        </div>
+        
+        <div class="content-box">
+            <h3>Your Order History</h3>
+            <table class="data-table" id="order-history-table">
+            <thead>
+                <tr>
+                <th>Pizza</th>
+                <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+            </table>
+            <p id="no-orders-message" class="hidden">No orders yet!</p>
+        </div>
+        </div>
+    </div>
+  </main> 
+
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.1/auth0-spa-js.production.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
