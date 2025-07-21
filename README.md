@@ -2,6 +2,10 @@
 
 This app demonstrates how to log in to a Pizza 42 company website using the Auth0 Universal Page, and call a backend API, using an access token, to order a pizza and store the information in the user metadata on Auth0.
 
+## Run Application
+
+Go to [WebApp](https://pizza-42-app.onrender.com/)
+
 ## Installation
 
 After cloning the repository, run:
